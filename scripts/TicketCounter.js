@@ -1,24 +1,17 @@
-// const contentTarget = document.querySelector(".attractions")
-// const eventHub = document.querySelector("#state-fair")
+let count = 0;
 
-// let x = 0
+export const TicketCounter = () => {
+  const eventHub = document.querySelector("#state-fair");
+  const contentTarget = document.querySelector(".counter");
 
-// export const TicketCounter = () => {
-//     eventHub.addEventListener("counting", countEvent => {
-//         for (const number of countEvent){
-//             x = number++
-//         }
-//         return x
-//     })
-//     contentTarget.innerHTML += x
+  eventHub.addEventListener("counterClick", (event) => {
+    count += event.detail.ticketCount;
 
-// }
-// eventHub.addEventListener("click", event => {
-//     let contentElement = document.querySelector(".attractions")
-//         for (const touch of contentElement){
-//         x = touch++
-//         contentElement.innerHTML += x
-//         }
-// })
+
+
+    console.log("count", count);
+    contentTarget.innerHTML = `Total Tickets Purchased: ${count}`;
+  });
+};
 
 
